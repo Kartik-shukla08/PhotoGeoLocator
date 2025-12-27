@@ -71,3 +71,28 @@ If you wish to modify or build the code yourself:
 git clone [https://github.com/Kartik-shukla08/PhotoGeoLocator.git](https://github.com/Kartik-shukla08/PhotoGeoLocator.git)
 cd PhotoGeoLocator
 pip install watchdog pillow geopy pystray pyinstaller
+```
+**2. Run Locally (Testing):**
+```bash
+python monitor_persistent.py
+```
+
+**3. Build EXE:**
+To compile the script into a single executable file, run the following command. Note the specific hidden import flag required for PIL to work correctly inside the package.
+
+```bash
+python -m PyInstaller --onefile --noconsole --name "PhotoGeoLocator" --hidden-import="PIL._tkinter_finder" monitor_persistent.py
+```
+
+The resulting `.exe` file will appear in the `dist/` folder.
+
+---
+
+## ⚙️ Configuration & Logs
+
+The application creates two files in the same directory as the executable:
+
+1.  `photo_organizer_config.json`: Stores your directory paths. Delete this file to reset the setup wizard.
+2.  `photo_organizer.log`: Records all events, processing attempts, and errors.
+
+---
